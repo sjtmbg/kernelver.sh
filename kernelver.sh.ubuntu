@@ -1,0 +1,33 @@
+#!/bin/sh
+
+###  kernel version script for ubuntu
+
+###  rpm --query centos-stream-release
+###  rpm --query redhat-release
+###  hostnamectl
+###  lsb_release -a/-d
+###  cat /etc/lsb_release
+###  cat /etc/issue
+###  neofetch
+
+mname=`uname -n`
+utype=`grep Prompt /etc/update-manager/release-upgrades`
+
+echo "================   $mname ($utype)  ==============="
+
+lsb_release -d
+lsb_release -c
+
+echo "===="
+
+unamea=`uname -a`
+unamer=`uname -r`
+unamev=`uname -v`
+
+echo "Vers:  $unamev"
+echo "Release:  $unamer"
+echo "All:  $unamea"
+
+echo "====  Signature  ===="
+
+cat /proc/version_signature
